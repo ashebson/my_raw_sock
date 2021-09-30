@@ -35,9 +35,10 @@ def get_ip_addr(b):
 
 
 def get_bits(p):
-    p = bin(int(p.hex(), 16))[2:]
-    p = p.zfill(len(p) // 4 * 4 + 4)  # pad with zeros
-    return p
+    bits = ''
+    for i in p:
+        bits += bin(i).lstrip('0b').zfill(8)
+    return bits
 
 
 def bits_to_bytes(b):
